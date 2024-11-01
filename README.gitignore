@@ -1,0 +1,61 @@
+Overview: Brief description of the project’s purpose.
+Features:
+Login System
+Product Management (CRUD operations)
+Search and Filter Products
+Category Management
+Tech Stack:
+Frontend: Tkinter for GUI.
+Backend: Python for logic and PostgreSQL for database.
+Installation Instructions:
+Prerequisites: Python, PostgreSQL, and required Python libraries (PIL, psycopg2, tkinter).
+Instructions for setting up PostgreSQL database, connecting to the GUI, and installing dependencies.
+1. Main Components
+WelcomePage Class:
+
+Acts as the entry point for the application, displaying a welcome screen.
+Includes a "Login" button that opens the LoginWindow for authentication.
+Sets a background image, welcome label, and information text for an inviting interface.
+LoginWindow Class:
+
+Prompts the user to enter a username and password.
+Only users with the correct credentials (hardcoded as "1" and "1234") can access the main system.
+Uses a background image for the login screen and offers a visually organized frame for login fields.
+On successful login, it opens the main inventory management system interface.
+InventoryManagementApp Class:
+
+This is the main part of the application where the inventory system functionalities are implemented.
+Connects to a PostgreSQL database to fetch and manage product information.
+2. Database Connectivity
+Database Connection:
+The application connects to a PostgreSQL database using the psycopg2 library.
+Database credentials and details (like database name and password) are configured in the create_database_connection method.
+Manages database transactions (queries and data fetching) through reusable methods fetch_data and execute_query.
+3. GUI Components
+Background and Frames:
+
+Background images and frames are used throughout the application to create a visually engaging interface.
+frame_options: Contains buttons for various inventory management tasks (Insert Product, Search, Show Categories, Delete, Modify Product Name, Show Products).
+frame_treeview: Displays a Treeview widget where product information is listed.
+Treeview Widget:
+
+A Treeview widget is used to display a table of product or category information in columns.
+Columns include fields like ID, Name, Category ID, Quantity, Price, and Description for products.
+The on_tree_item_double_click method handles events like double-clicking to view details.
+4. Functionalities
+Product Management:
+Users can insert, search, delete, modify, and display products in the database.
+The insert_product method collects product details from the user and adds them to the database.
+The search_product method enables a keyword search based on the product name.
+The delete_product and modify_product_name methods allow for specific product modifications.
+show_products and show_categories display all products or categories.
+5. User Interaction and Alerts
+Dialogs and Message Boxes:
+Simple dialogs (e.g., simpledialog.askstring) prompt the user to input details.
+Message boxes (e.g., messagebox.showinfo and messagebox.showerror) provide feedback on actions like login success/failure, missing inputs, or database errors.
+6. Cleanup on Exit
+Destructor (__del__ method):
+Ensures database connection closure upon exiting the application to prevent resource leaks.
+Running the Application
+Entry Point: When the script is run, the WelcomePage opens in the Tkinter root window, initiating the inventory management system.
+This system provides a simple but structured approach to managing an inventory with a graphical interface, a login screen, database CRUD operations, and a visually enhanced experience with background images and well-organized frames.
